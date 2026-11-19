@@ -1,0 +1,1387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Haerah Vaencette Lou Salva, RMT, DTA. Medical Virtual Assistant, Clinical AI Trainer, and licensed Drug Test Analyst based in Davao City, Philippines.">
+<title>Haerah Salva, RMT, DTA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-bleed microscope hero (you look through her lens), then single-column sections. Scroll spins the blood tube on the right. */
+:root{
+  --mode:light;
+  --bg:#f5f8f8; --surface:#ffffff; --ink:#0f2a2e; --muted:#51696c; --line:#d7e3e3;
+  --accent:#0b7a75; --accent-soft:#e2f1ef; --flag:#c2410c; --ok:#15803d; --nav:rgba(245,248,248,.82);
+  --field:#fdf4ee; --blood:#9b1c31; --plasma:#ecd27c; --buffy:#f6f1e7; --glass:#9fb4b4; --cap:#8e7cc3;
+  --cassette:#fbfdfd; --cas-edge:#c9d6d6; --cas-ink:#3b4a4b; --pad:#f3eef0; --dye:#b4235a; --wick:rgba(180,35,90,.16); --urine:#e9c46a;
+  --display:"Schibsted Grotesk",system-ui,sans-serif;
+  --body:"Source Sans 3",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --mode:dark;
+  --bg:#0c1718; --surface:#122224; --ink:#e4efee; --muted:#9db3b2; --line:#24393b;
+  --accent:#4fc3b8; --accent-soft:#163533; --flag:#fb923c; --ok:#4ade80; --nav:rgba(12,23,24,.82);
+  --field:#071110; --blood:#b3263d; --plasma:#e5c96f; --buffy:#efe9dc; --glass:#4a6769; --cap:#9c8ad6;
+  --cassette:#e7eeee; --cas-edge:#8aa0a0; --cas-ink:#3b4a4b; --pad:#efe9eb; --dye:#b4235a; --wick:rgba(180,35,90,.2); --urine:#e9c46a;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --mode:dark;
+  --bg:#0c1718; --surface:#122224; --ink:#e4efee; --muted:#9db3b2; --line:#24393b;
+  --accent:#4fc3b8; --accent-soft:#163533; --flag:#fb923c; --ok:#4ade80; --nav:rgba(12,23,24,.82);
+  --field:#071110; --blood:#b3263d; --plasma:#e5c96f; --buffy:#efe9dc; --glass:#4a6769; --cap:#9c8ad6;
+  --cassette:#e7eeee; --cas-edge:#8aa0a0; --cas-ink:#3b4a4b; --pad:#efe9eb; --dye:#b4235a; --wick:rgba(180,35,90,.2); --urine:#e9c46a;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+html{scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);margin:0}
+.wrap{max-width:960px;margin:0 auto;display:grid;gap:64px;padding-inline:16px;padding-block:56px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.5rem,3vw,1.9rem);font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.eyebrow{font:500 .75rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.sec-head{display:grid;gap:10px;margin-bottom:24px;max-width:62ch}
+.sec-head p{color:var(--muted)}
+.no-trans *,.no-trans *::before,.no-trans *::after{transition:none!important}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-old(root){z-index:1}
+::view-transition-new(root){z-index:2}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+
+/* Word-mask headings (activated by script) */
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.14em;margin-bottom:-.14em}
+.w>span{display:inline-block}
+
+/* Sticky nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--nav);backdrop-filter:blur(12px) saturate(1.4);-webkit-backdrop-filter:blur(12px) saturate(1.4);border-bottom:1px solid var(--line)}
+.nav-in{max-width:960px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px}
+.mark{font:800 1rem var(--display);color:var(--ink);text-decoration:none;margin-right:auto;white-space:nowrap}
+.mark span{color:var(--accent);font:500 .75rem var(--mono);margin-left:4px}
+.links{display:flex;gap:4px;position:relative;isolation:isolate}
+.links a{font-size:.92rem;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;transition:color .2s}
+.links a:hover{color:var(--ink)}
+.links a.on{color:var(--accent)}
+.pill{position:absolute;z-index:-1;top:0;left:0;height:100%;width:0;border-radius:6px;background:var(--accent-soft);opacity:0;transition:transform .45s cubic-bezier(.3,1.35,.5,1),width .45s cubic-bezier(.3,1.35,.5,1),opacity .25s}
+.theme{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;flex:none}
+.theme svg{width:18px;height:18px;transition:rotate .6s cubic-bezier(.3,1.3,.5,1)}
+:root[data-theme="dark"] .theme svg{rotate:180deg}
+.progress{height:3px;background:var(--accent);transform-origin:left;transform:scaleX(0)}
+
+/* Hero: microscope field */
+.hero{position:relative;overflow:hidden;isolation:isolate;border-bottom:1px solid var(--line);background:radial-gradient(120% 100% at 72% 28%,var(--field),var(--bg) 72%)}
+#scope{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.hero-in{max-width:960px;margin:0 auto;padding:64px 16px 26px;display:grid;gap:44px}
+.hero-main{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.photo-wrap{position:relative;width:200px;max-width:100%}
+.photo{display:block;width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;border:6px solid var(--surface);box-shadow:0 0 0 1px var(--line),0 24px 48px -28px rgba(0,0,0,.45);position:relative;z-index:1}
+.ring{position:absolute;inset:-10px;border-radius:50%;border:2px dashed var(--accent);opacity:.5}
+.status{position:absolute;z-index:2;bottom:10px;right:-6px;display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font:500 .72rem var(--mono);white-space:nowrap}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.hero-text{display:grid;gap:14px;min-width:0;position:relative;text-shadow:0 0 3px var(--bg),0 0 10px var(--bg),0 0 18px var(--bg)}
+.hero-text .btn,.hero-text .dta-badge{text-shadow:none}
+.hero h1{font-size:clamp(1.9rem,4.6vw,2.9rem);font-weight:800;letter-spacing:-.02em}
+.hero h1 .cred{color:var(--accent);font-size:.46em;font-family:var(--mono);font-weight:500;letter-spacing:.04em;vertical-align:middle;margin-left:.35em;white-space:nowrap}
+.dta-badge{justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font:600 .85rem var(--body);border:1px solid var(--accent)}
+.dta-badge svg{width:18px;height:18px;flex:none}
+.role{font-size:1.2rem;font-weight:600}
+.swap{display:inline-block;color:var(--accent);border-bottom:2px solid var(--accent);transition:opacity .25s,transform .25s,filter .25s}
+.swap.out{opacity:0;transform:translateY(-6px);filter:blur(4px)}
+.lede{color:var(--muted);max-width:56ch}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font:600 .95rem var(--body);text-decoration:none;border:1px solid var(--accent);cursor:pointer;transition:translate .25s cubic-bezier(.3,1.4,.5,1),box-shadow .2s,background .2s,color .2s}
+.btn:hover{box-shadow:0 10px 22px -12px var(--accent)}
+.btn.primary{background:var(--accent);color:var(--surface)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;box-shadow:none}
+.meta{display:flex;flex-wrap:wrap;gap:6px 20px;font:400 .85rem var(--mono);color:var(--muted)}
+.hud{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;justify-self:start;max-width:100%;padding:8px 14px;border:1px solid var(--line);border-radius:14px;background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font:500 .78rem/1.4 var(--mono);color:var(--muted)}
+.hud svg{width:18px;height:18px;color:var(--accent);flex:none}
+.hud-t{color:var(--ink);text-transform:uppercase;letter-spacing:.1em;font-size:.7rem}
+.hud-dots{display:flex;gap:5px}
+.hud-dots i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:.68rem;border:1.5px dashed var(--line);color:var(--muted);transition:background .4s,color .4s,border-color .4s,scale .5s cubic-bezier(.3,1.8,.5,1)}
+.hud-dots i.on{background:var(--accent);border:1.5px solid var(--accent);color:var(--surface);scale:1.12}
+.hud-m{min-width:0;flex:1 1 260px}
+.hud.done{border-color:var(--accent)}
+.hud.done .hud-m{color:var(--accent)}
+
+/* Credential labels */
+.labels{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;perspective:900px}
+.label{position:relative;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);padding:14px 16px;display:grid;gap:4px;transition:rotate .25s ease-out,translate .25s ease-out,box-shadow .25s}
+.label:hover{translate:0 -4px;box-shadow:0 18px 30px -18px rgba(0,0,0,.4)}
+.label::before,.track::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(240px circle at var(--gx,50%) var(--gy,50%),color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%)}
+.label:hover::before,.track:hover::before{opacity:1}
+.label .k{font:500 .7rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.label .v{font-weight:600;line-height:1.3}
+.label .d{font:400 .8rem var(--mono);color:var(--muted)}
+.label.featured{background:var(--accent-soft);border-color:var(--accent)}
+.label.featured::after{content:"Featured";position:absolute;top:10px;right:10px;font:500 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--surface);background:var(--accent);padding:2px 6px;border-radius:3px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:20px}
+.stat{display:grid;gap:2px;padding:4px 0 4px 16px;border-left:2px solid var(--line)}
+.stat b{font:800 2rem/1 var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:.92rem}
+
+/* Marquee of lab sections */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--surface);padding:20px 0}
+.mq-skew{will-change:transform}
+.mq-track{display:flex;width:max-content}
+.mq-track span{font:800 clamp(1.5rem,4vw,2.5rem)/1 var(--display);letter-spacing:-.01em;white-space:nowrap;color:var(--ink);display:flex;align-items:center}
+.mq-track span::after{content:"";width:.34em;height:.34em;border-radius:50%;border:.07em solid var(--accent);margin:0 .7em}
+.mq-track span.o{color:transparent;-webkit-text-stroke:1.2px var(--accent)}
+
+/* Drug test simulator */
+.sim{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:center}
+.sim-text{display:grid;gap:14px;min-width:0}
+.sim-text>p{color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:8px;counter-reset:s}
+.steps li{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;counter-increment:s;transition:color .3s}
+.steps li::before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:500 .75rem var(--mono);border:1.5px solid var(--line);transition:background .3s,border-color .3s,color .3s}
+.steps li.now{color:var(--ink);font-weight:600}
+.steps li.now::before{border-color:var(--accent);color:var(--accent)}
+.steps li.ok::before{content:"✓";background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.sim-ctrl{display:flex;flex-wrap:wrap;gap:10px}
+.specimen{font:500 .78rem/1.6 var(--mono);color:var(--muted);border:1px dashed var(--line);border-radius:8px;padding:8px 12px;min-height:2.4em}
+.specimen b{color:var(--ink)}
+.reads{display:flex;flex-wrap:wrap;gap:8px}
+.reads button{font:600 .9rem var(--body);padding:9px 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;transition:border-color .2s,translate .15s}
+.reads button:hover:not([disabled]){border-color:var(--accent);translate:0 -2px}
+.reads button[disabled]{opacity:.45;cursor:not-allowed}
+.reads button.right,.reads button.wrong{opacity:1}
+.reads button.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+.reads button.wrong{border-color:var(--flag);background:color-mix(in srgb,var(--flag) 12%,transparent)}
+.verdict{border-left:3px solid var(--accent);padding:4px 0 4px 14px;font-size:.95rem}
+.verdict b{font-family:var(--display)}
+.bench{position:relative;display:grid;gap:10px;justify-items:center;min-width:0}
+.bench svg{width:100%;max-width:460px;height:auto;display:block;overflow:visible;touch-action:pan-y}
+.bench text{font-family:var(--mono)}
+.timer{font:500 .85rem var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.timer b{color:var(--accent)}
+.legend{font:400 .78rem/1.5 var(--mono);color:var(--muted);text-align:center;max-width:44ch}
+.wick{transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}
+.wet .wick{transform:scaleX(1)}
+.ln{opacity:0}
+.ln.on{opacity:1}
+.dropper{opacity:.35;transition:opacity .3s}
+.dropper.armed{opacity:1;cursor:grab;touch-action:none}
+.dropper.drag{cursor:grabbing}
+.dropper .liq{opacity:0;transition:opacity .8s}
+.dropper.armed .liq{opacity:1}
+.wellring{opacity:0;transition:opacity .2s}
+.wellring.hot{opacity:1}
+.draghint{opacity:0;transition:opacity .4s;pointer-events:none}
+.draghint.show{opacity:1}
+
+/* Services */
+.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;perspective:1100px}
+.track{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;gap:14px;align-content:start}
+.track:hover{translate:0 -5px;border-color:var(--accent);box-shadow:0 22px 38px -24px rgba(0,0,0,.45)}
+.track p{color:var(--muted)}
+.track ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.track li{padding-left:24px;position:relative}
+.track li::before{content:"";position:absolute;left:2px;top:.5em;width:11px;height:11px;border:2px solid var(--accent);border-radius:50%;background:transparent;transition:background .3s}
+.track li::after{content:"";position:absolute;left:6px;top:.62em;width:3px;height:6px;border:solid var(--surface);border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transition:transform .3s}
+.track.in li::before{background:var(--accent)}
+.track.in li::after{transform:rotate(45deg) scale(1)}
+.tag{justify-self:start;font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent);padding:5px 9px;border-radius:4px}
+
+/* Spot-the-error quiz */
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;display:grid;gap:18px}
+.quiz-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px}
+.quiz-top .sec-head{margin:0}
+.quiz-side{display:grid;gap:8px;justify-items:end}
+.score{font:500 .82rem var(--mono);color:var(--muted)}
+.score b{color:var(--accent);font-variant-numeric:tabular-nums}
+.dots{display:flex;gap:6px}
+.dots i{width:28px;height:4px;border-radius:2px;background:var(--line);transition:background .3s}
+.dots i.done{background:var(--accent)}
+.dots i.miss{background:var(--flag)}
+.ai-bubble{font:500 .8rem var(--mono);color:var(--muted)}
+.claims{display:grid;gap:10px}
+.claim{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;text-align:left;width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);cursor:pointer;font:400 1rem/1.5 var(--body);transition:border-color .2s,translate .2s,background .2s,opacity .3s}
+.claim:hover:not([disabled]){border-color:var(--accent);translate:6px 0}
+.claim .n{font:500 .75rem var(--mono);color:var(--muted);padding-top:3px}
+.claim[disabled]{cursor:default}
+.claim.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,transparent)}
+.claim.wrong{border-color:var(--flag);background:color-mix(in srgb,var(--flag) 10%,transparent)}
+.claim.fade{opacity:.55}
+.explain{border-left:3px solid var(--accent);padding:4px 0 4px 14px;color:var(--ink)}
+.explain b{font-family:var(--display)}
+.quiz-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* QC band */
+.qc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:32px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px}
+.qc-text{display:grid;gap:12px;min-width:0}
+.qc-text>p{color:var(--muted)}
+.qc-ctrl{display:grid;gap:12px}
+.qc-btns{display:flex;flex-wrap:wrap;gap:8px}
+.qc-btns .btn{padding:9px 14px;font-size:.9rem}
+.qc-read{font:500 .82rem/1.55 var(--mono);color:var(--muted);min-height:4.6em}
+.qc-read b{color:var(--ink)}
+.rule{display:inline-block;font:500 .72rem var(--mono);padding:1px 7px;border-radius:4px;margin-left:4px;border:1px solid currentColor}
+.rule.ok{color:var(--ok)}
+.rule.warn{color:var(--flag)}
+.rule.rej{color:var(--surface);background:var(--flag);border-color:var(--flag)}
+.chart{position:relative;overflow-x:auto;min-width:0}
+.chart svg{display:block;width:100%;min-width:360px;height:auto}
+.chart text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.qline{fill:none;stroke:var(--accent);stroke-width:1.5;opacity:.55}
+.pt{fill:var(--accent);cursor:pointer;transition:r .15s}
+.pt.warn{fill:var(--flag)}
+.pt.rej{fill:var(--flag);stroke:var(--ink);stroke-width:1.5}
+.pt:hover,.pt:focus{r:7}
+.pt:focus{outline:none;stroke:var(--ink);stroke-width:2}
+.hl{fill:none;stroke:var(--flag);stroke-width:1.5;stroke-dasharray:3 3}
+.bar{fill:var(--accent);opacity:.28;transform-box:fill-box;transform-origin:left center;transform:scaleX(0);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font:500 .72rem/1.4 var(--mono);padding:6px 8px;border-radius:6px;white-space:nowrap;transform:translate(-50%,-115%);opacity:0;transition:opacity .15s}
+.tip.show{opacity:1}
+
+/* Timeline */
+.timeline{position:relative;display:grid;margin-left:6px}
+.track-line{position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--line)}
+.track-fill{position:absolute;left:0;top:0;width:2px;height:0;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.item{position:relative;padding:0 0 28px 28px;display:grid;gap:6px}
+.item:last-child{padding-bottom:0}
+.item::before{content:"";position:absolute;left:-6px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);transition:background .4s,scale .5s cubic-bezier(.3,1.8,.5,1)}
+.item.in::before{background:var(--accent);scale:1.15}
+.when{font:500 .8rem var(--mono);color:var(--accent)}
+.where{color:var(--muted);font-size:.95rem}
+.item ul{margin:4px 0 0;padding-left:18px;display:grid;gap:4px}
+
+/* Training + availability */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.box{border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;gap:12px;align-content:start;background:var(--surface)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.92rem;transition:background .2s,color .2s,border-color .2s,translate .2s}
+.chip:hover{background:var(--accent);border-color:var(--accent);color:var(--surface);translate:0 -2px}
+.facts{display:grid;gap:10px;margin:0}
+.facts div{display:grid;grid-template-columns:120px 1fr;gap:12px}
+.facts dt{font:500 .75rem/1.9 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.facts dd{margin:0;font-weight:600}
+
+/* Contact */
+.contact{background:var(--accent);color:var(--surface);border-radius:14px;padding:32px;display:grid;gap:18px;position:relative;overflow:hidden;isolation:isolate}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(380px circle at var(--mx,80%) var(--my,10%),color-mix(in srgb,var(--surface) 26%,transparent),transparent 70%)}
+.contact::after{content:"";position:absolute;z-index:-1;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:30px solid var(--surface);opacity:.08}
+.contact h2{color:var(--surface)}
+.contact p{opacity:.9;max-width:58ch}
+.builder{display:grid;gap:14px;background:color-mix(in srgb,var(--surface) 12%,transparent);border:1px solid color-mix(in srgb,var(--surface) 30%,transparent);border-radius:12px;padding:20px}
+.pick{display:flex;flex-wrap:wrap;gap:8px}
+.pick button{font:600 .88rem var(--body);padding:7px 13px;border-radius:999px;border:1px solid color-mix(in srgb,var(--surface) 60%,transparent);background:transparent;color:var(--surface);cursor:pointer;transition:background .2s,color .2s,translate .15s}
+.pick button:hover{translate:0 -2px}
+.pick button[aria-pressed="true"]{background:var(--surface);color:var(--accent);border-color:var(--surface)}
+.fit{font:500 .8rem var(--mono);opacity:.9;min-height:1.4em}
+label.fit{min-height:0}
+.msg{width:100%;min-height:150px;resize:vertical;border-radius:8px;border:0;padding:12px 14px;font:400 .95rem/1.5 var(--body);background:var(--surface);color:var(--ink)}
+.msg-actions{display:flex;flex-wrap:wrap;gap:10px}
+.contact .btn{background:var(--surface);color:var(--accent);border-color:var(--surface)}
+.contact .btn.line{background:transparent;color:var(--surface)}
+.rows{display:grid;gap:10px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.row .k{font:500 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.8;width:80px}
+.row .v{font:500 1rem var(--mono);user-select:all;word-break:break-all}
+.copy{font:600 .8rem var(--body);background:transparent;color:var(--surface);border:1px solid currentColor;border-radius:6px;padding:4px 10px;cursor:pointer;transition:background .2s,color .2s}
+.copy:hover,.copy.done{background:var(--surface);color:var(--accent)}
+footer{color:var(--muted);font:400 .8rem var(--mono);text-align:center}
+
+/* Blood tube scroll indicator (wide screens) */
+.tube{position:fixed;right:22px;top:50%;translate:0 -50%;z-index:5;width:54px;display:none;gap:6px;justify-items:center;pointer-events:none}
+.tube svg{width:100%;height:auto;display:block;filter:drop-shadow(0 10px 14px rgba(0,0,0,.18))}
+.tube-p{font:500 .68rem/1.3 var(--mono);color:var(--muted);text-align:center}
+.tube-p b{display:block;color:var(--ink);font-size:.82rem;font-variant-numeric:tabular-nums}
+@media (min-width:1180px){.tube{display:grid}.progress{display:none}}
+
+@media (max-width:760px){
+  .sim{grid-template-columns:1fr;padding:20px}
+  .bench{order:-1}
+  .qc{grid-template-columns:1fr;padding:20px}
+}
+@media (max-width:640px){
+  .links{display:none}
+  .hero-in{padding-top:40px;gap:32px}
+  .hero-main{grid-template-columns:1fr;justify-items:start;gap:24px}
+  .photo-wrap{width:150px}
+  .status{right:auto;left:50%;translate:-50% 0}
+  .quiz{padding:20px}
+  .quiz-side{justify-items:start}
+  .contact{padding:24px}
+  .facts div{grid-template-columns:1fr;gap:0}
+}
+
+/* Motion (skipped entirely for reduced-motion users) */
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .hero-main{animation:focus 1.5s cubic-bezier(.2,.7,.2,1) both}
+  .hero-text>*,.photo-wrap,.hud{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero-text>*:nth-child(2){animation-delay:.08s}
+  .hero-text>*:nth-child(3){animation-delay:.2s}
+  .hero-text>*:nth-child(4){animation-delay:.28s}
+  .hero-text>*:nth-child(5){animation-delay:.36s}
+  .hero-text>*:nth-child(6){animation-delay:.44s}
+  .hero-text>*:nth-child(7){animation-delay:.52s}
+  .hud{animation-delay:.9s}
+  .ring{animation:spin 30s linear infinite}
+  .status i{animation:pulse 2s infinite}
+  .mq-track{animation:mq 42s linear infinite}
+  .dropper.armed:not(.drag) .bob{animation:bob 1.4s ease-in-out infinite}
+  .wet .wick{transition:transform 2.4s linear}
+  .ln.on{transition:opacity 1.2s ease}
+  .shake{animation:shake .4s}
+  .js [data-reveal]{opacity:0;transform:translateY(28px);filter:blur(8px);transition:opacity .8s ease var(--d,0ms),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0ms),filter .8s ease var(--d,0ms),rotate .25s ease-out,translate .25s ease-out,border-color .25s,box-shadow .25s}
+  .js [data-reveal].in{opacity:1;transform:none;filter:none}
+  .js .w>span{transform:translateY(112%);transition:transform .9s cubic-bezier(.2,.75,.2,1) calc(var(--wi,0)*55ms + var(--d,0ms))}
+  .js .in .w>span{transform:none}
+  .js .we{opacity:0;transition:opacity .7s ease calc(var(--wi,0)*55ms + .15s)}
+  .js .in .we{opacity:1}
+  .track li::before,.track li::after{transition-delay:calc(var(--i,0)*70ms + .35s)}
+  @keyframes focus{from{filter:blur(18px);opacity:0;scale:1.04}to{filter:blur(0);opacity:1;scale:1}}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 55%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+}
+</style>
+</head>
+<body>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<nav class="nav" aria-label="Sections">
+  <div class="nav-in">
+    <a class="mark" href="#top">Haerah Salva<span>RMT, DTA</span></a>
+    <div class="links">
+      <span class="pill" id="pill" aria-hidden="true"></span>
+      <a href="#drugtest">Drug test</a><a href="#services">Services</a><a href="#quiz">Quiz</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </div>
+    <button class="theme" id="theme" type="button" aria-label="Switch between brightfield (light) and darkfield (dark) view" title="Brightfield / darkfield">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg>
+    </button>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<aside class="tube" id="tube" aria-hidden="true">
+  <svg viewBox="0 0 60 262" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <clipPath id="tin"><path d="M14 30H46V236a16 16 0 0 1-32 0Z"/></clipPath>
+      <clipPath id="tsurf"><polygon id="tsurfp" points="10,72 50,72 50,262 10,262"/></clipPath>
+    </defs>
+    <g clip-path="url(#tin)">
+      <g clip-path="url(#tsurf)">
+        <rect x="10" y="40" width="40" height="222" fill="var(--blood)"/>
+        <rect id="t-plasma" x="10" y="52" width="40" height="20" fill="var(--plasma)"/>
+        <rect id="t-buffy" x="10" y="72" width="40" height="3" fill="var(--buffy)" opacity="0"/>
+      </g>
+      <rect x="18" y="34" width="5" height="206" rx="2.5" fill="#fff" opacity=".3"/>
+    </g>
+    <path d="M14 30H46V236a16 16 0 0 1-32 0Z" fill="none" stroke="var(--glass)" stroke-width="2"/>
+    <g stroke="var(--glass)" stroke-width="1"><path d="M46 90h-7M46 120h-5M46 150h-7M46 180h-5M46 210h-7"/></g>
+    <rect x="9" y="4" width="42" height="28" rx="6" fill="var(--cap)"/>
+    <g stroke="#fff" stroke-width="1.5" opacity=".35"><path d="M17 9v18M24 9v18M31 9v18M38 9v18M45 9v18"/></g>
+  </svg>
+  <span class="tube-p"><b id="spin">0%</b>spun</span>
+</aside>
+
+<header class="hero" id="top">
+  <canvas id="scope" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <div class="hero-main">
+      <div class="photo-wrap">
+        <span class="ring" aria-hidden="true"></span>
+        <img class="photo" src="data:image/jpeg;base64,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" alt="Portrait of Haerah Vaencette Lou Salva in a laboratory coat">
+        <span class="status"><i></i>Open to part-time work</span>
+      </div>
+      <div class="hero-text">
+        <span class="eyebrow">Medical Virtual Assistant · Clinical AI Trainer</span>
+        <h1>Haerah Vaencette Lou Salva<span class="cred">RMT, DTA</span></h1>
+        <span class="dta-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Licensed Drug Test Analyst · EAMC – NRL</span>
+        <p class="role">A licensed Medical Technologist supporting <span class="swap" id="swap">clinics</span> remotely.</p>
+        <p class="lede">I keep healthcare records accurate, schedules organized, and clinical content correct. Three years in hospital labs and university teaching taught me one rule: check it twice before it leaves your hands.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact" data-mag>Work with me</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/haerah-vaencette-lou-salva-rmt-9932b6206" target="_blank" rel="noopener" data-mag>LinkedIn profile</a>
+        </div>
+        <div class="meta"><span>Davao City, Philippines</span><span>UTC+8</span><span>Part-time · flexible hours</span></div>
+      </div>
+    </div>
+    <div class="hud" id="hud">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3l4 7-3 2-4-7z"/><path d="M12 10a6 6 0 0 1 3 10"/><path d="M5 20h14M9 20v-3"/></svg>
+      <span class="hud-t">Manual differential</span>
+      <span class="hud-dots" id="huddots"><i data-t="neut" title="Neutrophil">N</i><i data-t="lymph" title="Lymphocyte">L</i><i data-t="mono" title="Monocyte">M</i><i data-t="eos" title="Eosinophil">E</i><i data-t="baso" title="Basophil">B</i></span>
+      <span class="hud-m" id="hudm" aria-live="polite">You are looking at a blood smear through my microscope.</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <section aria-labelledby="cred" data-reveal>
+    <div class="sec-head"><span class="eyebrow">Credentials</span><h2 id="cred">Licensed, trained, and still studying</h2></div>
+    <div class="labels">
+      <div class="label"><span class="k">License</span><span class="v">Registered Medical Technologist</span><span class="d">PRC · Oct 2023</span></div>
+      <div class="label featured"><span class="k">License · DTA</span><span class="v">Drug Test Analyst</span><span class="d">EAMC – NRL · Jul 2026</span></div>
+      <div class="label"><span class="k">Degree</span><span class="v">BS Medical Laboratory Science</span><span class="d">Univ. of Immaculate Conception · 2023</span></div>
+      <div class="label"><span class="k">Graduate study</span><span class="v">MS Medical Technology</span><span class="d">UIC · in progress</span></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b data-count="3">3</b><span>years in lab medicine and teaching</span></div>
+      <div class="stat"><b data-count="7">7</b><span>lab sections rotated in hospital</span></div>
+      <div class="stat"><b data-count="5">5</b><span>VA training courses completed</span></div>
+      <div class="stat"><b data-count="2">2</b><span>PRC and NRL credentials</span></div>
+    </div>
+  </section>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mq-skew" id="mq">
+    <div class="mq-track" id="mqt">
+      <span>Hematology</span><span class="o">Histopathology</span><span>Clinical Chemistry</span><span class="o">Clinical Microscopy</span><span>Microbiology</span><span class="o">Immunoserology</span><span>Blood Banking</span><span class="o">Drug Testing</span>
+      <span>Hematology</span><span class="o">Histopathology</span><span>Clinical Chemistry</span><span class="o">Clinical Microscopy</span><span>Microbiology</span><span class="o">Immunoserology</span><span>Blood Banking</span><span class="o">Drug Testing</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="sim" id="drugtest" aria-labelledby="simh" data-reveal>
+    <div class="sim-text">
+      <span class="eyebrow">Drug Test Analyst · try the bench</span>
+      <h2 id="simh">Can you read a drug test?</h2>
+      <p>This is a 2-panel urine screen for methamphetamine (MET) and marijuana (THC), the two drugs most commonly screened in the Philippines. Run a specimen and read it like an analyst. Hint: it works the opposite way from a pregnancy test.</p>
+      <ol class="steps" id="steps">
+        <li class="now">Collect and check the specimen</li>
+        <li>Drag the dropper to the sample well</li>
+        <li>Wait the 5-minute read time</li>
+        <li>Read and report the result</li>
+      </ol>
+      <div class="specimen" id="spec">No specimen loaded.</div>
+      <div class="sim-ctrl">
+        <button class="btn primary" id="collect" type="button">Collect specimen</button>
+        <button class="btn ghost" id="drops" type="button" disabled>Add 3 drops for me</button>
+      </div>
+      <div class="reads" id="reads">
+        <button type="button" data-a="neg" disabled>Negative</button>
+        <button type="button" data-a="met" disabled>Positive: MET</button>
+        <button type="button" data-a="thc" disabled>Positive: THC</button>
+        <button type="button" data-a="inv" disabled>Invalid</button>
+      </div>
+      <p class="verdict" id="verdict" hidden></p>
+    </div>
+    <div class="bench">
+      <svg id="bench" viewBox="0 -96 440 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-panel drug test cassette with MET and THC result windows and a draggable dropper">
+        <defs>
+          <clipPath id="w1"><rect x="150" y="56" width="250" height="40" rx="6"/></clipPath>
+          <clipPath id="w2"><rect x="150" y="140" width="250" height="40" rx="6"/></clipPath>
+          <clipPath id="wl"><circle cx="78" cy="118" r="26"/></clipPath>
+          <filter id="rough" filterUnits="userSpaceOnUse" x="100" y="30" width="340" height="170">
+            <feTurbulence type="fractalNoise" baseFrequency="0.035 0.22" numOctaves="2" seed="7" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+        <rect x="10" y="22" width="420" height="190" rx="30" fill="var(--cassette)" stroke="var(--cas-edge)" stroke-width="2"/>
+        <circle cx="78" cy="118" r="30" fill="var(--cas-edge)" opacity=".5"/>
+        <circle cx="78" cy="118" r="26" fill="var(--pad)"/>
+        <rect id="wellwet" x="52" y="92" width="52" height="52" fill="var(--urine)" opacity="0" clip-path="url(#wl)" style="transition:opacity .6s"/>
+        <circle class="wellring" id="wellring" cx="78" cy="118" r="35" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="4 5"/>
+        <text x="78" y="170" text-anchor="middle" font-size="13" font-weight="600" fill="var(--cas-ink)">S</text>
+        <text x="150" y="50" font-size="11" font-weight="600" fill="var(--cas-ink)">MET</text>
+        <text x="150" y="134" font-size="11" font-weight="600" fill="var(--cas-ink)">THC</text>
+        <rect x="150" y="56" width="250" height="40" rx="6" fill="var(--pad)" stroke="var(--cas-edge)"/>
+        <rect x="150" y="140" width="250" height="40" rx="6" fill="var(--pad)" stroke="var(--cas-edge)"/>
+        <g clip-path="url(#w1)"><g filter="url(#rough)"><rect class="wick" x="110" y="44" width="320" height="64" fill="var(--wick)"/></g></g>
+        <g clip-path="url(#w2)"><g filter="url(#rough)"><rect class="wick" x="110" y="128" width="320" height="64" fill="var(--wick)"/></g></g>
+        <rect class="ln" id="metT" x="246" y="60" width="7" height="32" rx="2" fill="var(--dye)"/>
+        <rect class="ln" id="metC" x="336" y="60" width="7" height="32" rx="2" fill="var(--dye)"/>
+        <rect class="ln" id="thcT" x="246" y="144" width="7" height="32" rx="2" fill="var(--dye)"/>
+        <rect class="ln" id="thcC" x="336" y="144" width="7" height="32" rx="2" fill="var(--dye)"/>
+        <g font-size="11" font-weight="600" fill="var(--cas-ink)" text-anchor="middle">
+          <text x="250" y="110">T</text><text x="340" y="110">C</text>
+          <text x="250" y="194">T</text><text x="340" y="194">C</text>
+        </g>
+        <text x="410" y="50" text-anchor="end" font-size="9" fill="var(--cas-ink)" opacity=".7">2-PANEL DRUG SCREEN</text>
+        <g class="draghint" id="draghint">
+          <path d="M356 -52C262 -92 128 -64 86 62" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 6"/>
+          <path d="M80 74l-3 -15 13 5z" fill="var(--accent)"/>
+          <text x="212" y="-78" text-anchor="middle" font-size="12" fill="var(--accent)">Drag the dropper to the sample well</text>
+        </g>
+        <g id="dropg"></g>
+        <g class="dropper" id="dropper" style="transform:translate(392px,2px)">
+          <g class="bob">
+            <rect x="-24" y="-90" width="48" height="96" fill="transparent"/>
+            <path d="M-9 -56v-22q0 -9 9 -9t9 9v22z" fill="var(--accent)"/>
+            <rect x="-12" y="-57" width="24" height="6" rx="2" fill="var(--cas-ink)"/>
+            <path d="M-6 -51h12v30l-3.5 20h-5l-3.5 -20z" fill="#fff" fill-opacity=".6" stroke="var(--cas-edge)" stroke-width="1.2"/>
+            <path class="liq" d="M-4.6 -42h9.2v20.6l-3.1 17.4h-3l-3.1 -17.4z" fill="var(--urine)"/>
+          </g>
+        </g>
+      </svg>
+      <span class="timer" id="timer">Read time <b>0:00</b> / 5:00</span>
+      <p class="legend">C = control line, proves the test worked. T = test line. A line at T means negative.</p>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="svc">
+    <div class="sec-head" data-reveal><span class="eyebrow">Services</span><h2 id="svc">Three ways I can help</h2>
+      <p>Pick one track or combine them. All three run on the same clinical background.</p></div>
+    <div class="tracks">
+      <article class="track" data-reveal>
+        <span class="tag">For clinics &amp; labs</span>
+        <h3>Medical Virtual Assistant</h3>
+        <p>Admin support from someone who already speaks your terminology.</p>
+        <ul>
+          <li>Medical records and documentation</li>
+          <li>Patient scheduling and appointment coordination</li>
+          <li>Lab result encoding and monitoring</li>
+          <li>Email, inbox, and calendar management</li>
+          <li>Data entry and file organization</li>
+          <li>HIPAA and data privacy awareness</li>
+        </ul>
+      </article>
+      <article class="track" data-reveal>
+        <span class="tag">For AI &amp; health-tech teams</span>
+        <h3>Clinical AI Trainer &amp; Reviewer</h3>
+        <p>Medical subject-matter review for AI models and health content.</p>
+        <ul>
+          <li>Evaluate AI answers for clinical accuracy</li>
+          <li>Write and grade lab-medicine questions</li>
+          <li>Build scoring rubrics and answer keys</li>
+          <li>Fact-check lab values and test interpretations</li>
+          <li>Review health and patient-education content</li>
+          <li>Clear, structured written feedback in English</li>
+        </ul>
+      </article>
+      <article class="track" data-reveal>
+        <span class="tag">For drug testing labs &amp; employers</span>
+        <h3>Drug Testing Admin Support</h3>
+        <p>Remote back-office help from a licensed Drug Test Analyst.</p>
+        <ul>
+          <li>Chain-of-custody form review</li>
+          <li>Drug test result encoding and report preparation</li>
+          <li>Collection scheduling and client coordination</li>
+          <li>Records filing and compliance tracking</li>
+          <li>Answering client questions about the testing process</li>
+          <li>Strict confidentiality of results</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="quiz" id="quiz" aria-labelledby="qz" data-reveal>
+    <div class="quiz-top">
+      <div class="sec-head"><span class="eyebrow">Try what I do for AI teams</span><h2 id="qz">Spot the AI's mistake</h2>
+        <p>An AI wrote three lab-medicine statements. One is wrong. Can you catch it?</p></div>
+      <div class="quiz-side">
+        <span class="score">Score <b id="qscore">0</b> / <b id="qtotal">3</b></span>
+        <div class="dots" id="qdots"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+    <div class="ai-bubble" id="qround">Round 1 of 3 · AI response</div>
+    <div class="claims" id="claims"></div>
+    <p class="explain" id="explain" hidden></p>
+    <div class="quiz-foot">
+      <button class="btn primary" id="qnext" type="button" hidden>Next round</button>
+      <span class="score" id="qend" hidden></span>
+    </div>
+  </section>
+
+  <section class="qc" id="qc" aria-labelledby="qch" data-reveal>
+    <div class="qc-text">
+      <span class="eyebrow">How I work</span>
+      <h2 id="qch">Quality control is a daily habit</h2>
+      <p>In the lab, every control run goes on a Levey-Jennings chart and gets checked against the Westgard rules. I bring the same discipline to your records, inbox, and data. Try to break the run.</p>
+      <div class="qc-ctrl">
+        <div class="qc-btns">
+          <button class="btn primary" id="run" type="button" data-mag>Run a control</button>
+          <button class="btn ghost" id="shift" type="button">Simulate a shift</button>
+          <button class="btn ghost" id="spike" type="button">Random error</button>
+          <button class="btn ghost" id="recal" type="button" hidden>Recalibrate</button>
+        </div>
+        <p class="qc-read" id="read" aria-live="polite">Glucose control · mean 100 mg/dL · SD 4. Run a control, or cause a problem and watch the rules catch it.</p>
+      </div>
+    </div>
+    <div class="chart" id="chart">
+      <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Levey-Jennings quality control chart with a histogram of all runs against the expected bell curve">
+        <defs><clipPath id="plotclip"><rect x="46" y="0" width="357" height="220"/></clipPath></defs>
+        <g stroke="var(--line)" stroke-width="1"><line x1="44" y1="20" x2="404" y2="20"/><line x1="44" y1="200" x2="404" y2="200"/></g>
+        <g stroke="var(--flag)" stroke-width="1" stroke-dasharray="4 4" opacity=".7"><line x1="44" y1="50" x2="404" y2="50"/><line x1="44" y1="170" x2="404" y2="170"/></g>
+        <g stroke="var(--muted)" stroke-width="1" stroke-dasharray="2 4" opacity=".6"><line x1="44" y1="80" x2="404" y2="80"/><line x1="44" y1="140" x2="404" y2="140"/></g>
+        <line x1="44" y1="110" x2="404" y2="110" stroke="var(--accent)" stroke-width="1.5"/>
+        <g>
+          <text x="38" y="23" text-anchor="end">+3SD</text><text x="38" y="53" text-anchor="end">+2SD</text>
+          <text x="38" y="83" text-anchor="end">+1SD</text><text x="38" y="113" text-anchor="end">Mean</text>
+          <text x="38" y="143" text-anchor="end">−1SD</text><text x="38" y="173" text-anchor="end">−2SD</text>
+          <text x="38" y="203" text-anchor="end">−3SD</text>
+        </g>
+        <g clip-path="url(#plotclip)"><g id="plot"><polyline class="qline" id="qline" points=""/><g id="rings"></g><g id="pts"></g></g></g>
+        <line x1="414" y1="12" x2="414" y2="208" stroke="var(--line)" stroke-width="1"/>
+        <g id="bars"></g>
+        <path id="bell" d="" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity=".75"/>
+        <text id="nlab" x="512" y="12" text-anchor="end">n = 15</text>
+      </svg>
+      <div class="tip" id="tip"></div>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp">
+    <div class="sec-head" data-reveal><span class="eyebrow">Experience</span><h2 id="exp">Where I've worked</h2></div>
+    <div class="timeline" id="timeline">
+      <span class="track-line"></span><span class="track-fill" id="tfill"></span>
+      <div class="item" data-reveal>
+        <span class="when">Aug 2026 – present</span>
+        <h3>Research Adviser</h3>
+        <span class="where">University of Immaculate Conception · College of Medical and Biological Sciences</span>
+        <ul>
+          <li>Advise the research work of the MLS students I handle</li>
+        </ul>
+      </div>
+      <div class="item" data-reveal>
+        <span class="when">2023 – present</span>
+        <h3>Clinical Instructor / Assistant Professor</h3>
+        <span class="where">University of Immaculate Conception · College of Medical and Biological Sciences</span>
+        <ul>
+          <li>Teach the 6 core sections of medical laboratory science, specializing in Clinical Chemistry</li>
+          <li>Write lesson materials, review guides, quizzes, and assessments</li>
+          <li>Track student performance and give feedback for board exam readiness</li>
+        </ul>
+      </div>
+      <div class="item" data-reveal>
+        <span class="when">2023 – present</span>
+        <h3>Club Moderator, Association of Medical Technology Students</h3>
+        <span class="where">Project and operations management · UIC</span>
+        <ul>
+          <li>Manage schedules, reminders, and correspondence for student leaders</li>
+          <li>Plan programs, webinars, and institutional events end to end</li>
+          <li>Prepare reports, summaries, and meeting documentation</li>
+        </ul>
+      </div>
+      <div class="item" data-reveal>
+        <span class="when">2022 – 2023</span>
+        <h3>Medical Laboratory Science Intern</h3>
+        <span class="where">Davao Doctors Hospital · UIC affiliate</span>
+        <ul>
+          <li>Worked across Hematology, Histopathology, Clinical Chemistry, Clinical Microscopy, Microbiology, Immunoserology, and Blood Banking</li>
+          <li>Organized and processed patient samples</li>
+          <li>Maintained Levey-Jennings QC charts</li>
+          <li>Took part in drug testing procedures and external quality assessment (NEQAS)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="two" aria-label="Training and availability" data-reveal>
+    <div class="box">
+      <span class="eyebrow">VA training</span>
+      <h3>Courses completed, VirtualAssist Online (2026)</h3>
+      <div class="chips">
+        <span class="chip">Social Media Management</span><span class="chip">Data Entry</span>
+        <span class="chip">Lead Generation</span><span class="chip">Graphic Design (Canva)</span>
+        <span class="chip">Facebook Advertising</span>
+      </div>
+    </div>
+    <div class="box">
+      <span class="eyebrow">Availability</span>
+      <h3>Part-time, on a schedule we agree on</h3>
+      <dl class="facts">
+        <div><dt>Hours</dt><dd>Part-time, flexible</dd></div>
+        <div><dt>Time zone</dt><dd>Philippines (UTC+8)</dd></div>
+        <div><dt>Work style</dt><dd>Async-friendly, clear written updates</dd></div>
+        <div><dt>Language</dt><dd>Fluent English, written and spoken</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="ct" data-reveal>
+    <h2 id="ct">Let's talk about your workload</h2>
+    <p>Tap what you need help with. I'll draft the message for you, then copy it into an email to me.</p>
+    <div class="builder">
+      <div class="pick" id="pick">
+        <button type="button" aria-pressed="false" data-t="va">Patient scheduling</button>
+        <button type="button" aria-pressed="false" data-t="va">Medical records</button>
+        <button type="button" aria-pressed="false" data-t="va">Lab result encoding</button>
+        <button type="button" aria-pressed="false" data-t="va">Inbox &amp; calendar</button>
+        <button type="button" aria-pressed="false" data-t="va">Data entry</button>
+        <button type="button" aria-pressed="false" data-t="ai">AI answer review</button>
+        <button type="button" aria-pressed="false" data-t="ai">Writing medical questions</button>
+        <button type="button" aria-pressed="false" data-t="ai">Health content fact-check</button>
+        <button type="button" aria-pressed="false" data-t="dt">Drug test result encoding</button>
+        <button type="button" aria-pressed="false" data-t="dt">Chain-of-custody review</button>
+      </div>
+      <p class="fit" id="fit" aria-live="polite">Pick one or more tasks.</p>
+      <label for="msg" class="fit">Your message (edit freely)</label>
+      <textarea class="msg" id="msg"></textarea>
+      <div class="msg-actions">
+        <button class="btn" id="copymsg" type="button">Copy message</button>
+        <a class="btn line" id="mailmsg" href="mailto:haerahvaencettelou@gmail.com">Open in email app</a>
+      </div>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="k">Email</span><span class="v" id="em">haerahvaencettelou@gmail.com</span><button class="copy" data-target="em" type="button">Copy</button></div>
+      <div class="row"><span class="k">Phone</span><span class="v" id="ph">+63 945 295 5441</span><button class="copy" data-target="ph" type="button">Copy</button></div>
+    </div>
+  </section>
+
+  <footer>Haerah Vaencette Lou Salva, RMT, DTA · Davao City, Philippines</footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+var root=document.documentElement,
+    still=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches),
+    fine=!!(window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches),
+    SVGNS='http://www.w3.org/2000/svg';
+function $(s,c){return (c||document).querySelector(s)}
+function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))}
+function clamp(v,a,b){return v<a?a:v>b?b:v}
+function lerp(a,b,t){return a+(b-a)*t}
+function tok(n){return getComputedStyle(root).getPropertyValue(n).trim()}
+function rng(s){return function(){s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296}}
+function gauss(){var u=1-Math.random(),v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(6.2832*v)}
+function svgEl(n,a){var e=document.createElementNS(SVGNS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
+function now(){return performance.now()}
+var T={};
+function readTokens(){T={dark:tok('--mode')==='dark',ink:tok('--ink'),bg:tok('--bg'),surface:tok('--surface'),accent:tok('--accent'),flag:tok('--flag'),muted:tok('--muted'),line:tok('--line')}}
+
+var canReveal=('IntersectionObserver' in window)&&!still;
+if(canReveal)root.classList.add('js');
+
+/* ---------- Theme: circular reveal from the toggle ---------- */
+try{var saved=localStorage.getItem('hs-theme');if(saved)root.setAttribute('data-theme',saved)}catch(e){}
+readTokens();
+var themeSubs=[readTokens];
+function setTheme(next,x,y){
+  function apply(){root.classList.add('no-trans');root.setAttribute('data-theme',next);try{localStorage.setItem('hs-theme',next)}catch(e){}themeSubs.forEach(function(f){f()})}
+  function done(){requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.remove('no-trans')})})}
+  if(still||!document.startViewTransition){apply();done();return}
+  var vt;
+  try{vt=document.startViewTransition(apply)}catch(e){apply();done();return}
+  var r=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));
+  vt.ready.then(function(){
+    root.animate({clipPath:['circle(0px at '+x+'px '+y+'px)','circle('+r+'px at '+x+'px '+y+'px)']},
+      {duration:750,easing:'cubic-bezier(.4,0,.2,1)',pseudoElement:'::view-transition-new(root)'});
+  }).catch(function(){});
+  vt.finished.then(done,done);
+}
+$('#theme').addEventListener('click',function(){
+  var r=this.getBoundingClientRect();
+  setTheme(T.dark?'light':'dark',r.left+r.width/2,r.top+r.height/2);
+});
+
+/* ---------- Particle bursts ---------- */
+var fx=$('#fx'),fxc=fx.getContext('2d'),parts=[],fxOn=false,fd=1;
+function fxSize(){fd=Math.min(window.devicePixelRatio||1,2);fx.width=Math.round(innerWidth*fd);fx.height=Math.round(innerHeight*fd)}
+fxSize();addEventListener('resize',fxSize);
+function burst(x,y,n,pow){
+  if(still)return;pow=pow||1;var cols=[T.accent,T.flag,'#e9c46a',T.ink];
+  for(var i=0;i<n;i++){var a=Math.random()*6.2832,sp=(1.5+Math.random()*6)*pow;
+    parts.push({x:x,y:y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-3*pow,r:3+Math.random()*5,life:1,c:cols[i%cols.length],ring:Math.random()<.6})}
+  if(!fxOn){fxOn=true;requestAnimationFrame(fxLoop)}
+}
+function burstAt(el,n,pow){var r=el.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,n,pow)}
+function fxLoop(){
+  fxc.setTransform(fd,0,0,fd,0,0);fxc.clearRect(0,0,innerWidth,innerHeight);
+  parts=parts.filter(function(p){return p.life>0&&p.y<innerHeight+40});
+  parts.forEach(function(p){
+    p.vy+=.25;p.vx*=.985;p.x+=p.vx;p.y+=p.vy;p.life-=.013;
+    fxc.globalAlpha=clamp(p.life*1.8,0,1);fxc.beginPath();fxc.arc(p.x,p.y,p.r,0,6.2832);
+    if(p.ring){fxc.lineWidth=2;fxc.strokeStyle=p.c;fxc.stroke()}else{fxc.fillStyle=p.c;fxc.fill()}
+  });
+  if(parts.length)requestAnimationFrame(fxLoop);else{fxOn=false;fxc.clearRect(0,0,innerWidth,innerHeight)}
+}
+
+/* ---------- Microscope hero ---------- */
+var hero=$('#top'),cv=$('#scope'),sc=cv.getContext('2d'),hud=$('#hud'),hudm=$('#hudm'),
+    W=0,H=0,dpr=1,cells=[],wbcs=[],sprites=null,P=null,Z=2.2,heroVis=true,
+    lens={x:0,y:0,tx:0,ty:0,R:100,user:-1e9,ai:-1,at:0},quiet=null,heroText=$('.hero-text'),hit=null,hitT=0,found={},nFound=0,
+    TYPES=['neut','lymph','mono','eos','baso'],
+    SIZE={rbc:1,plt:.26,neut:1.5,lymph:1.12,mono:1.85,eos:1.55,baso:1.35},
+    INFO={neut:['Neutrophil','segmented nucleus · fine granules'],
+          lymph:['Lymphocyte','round dense nucleus · thin rim'],
+          mono:['Monocyte','kidney-shaped nucleus · largest'],
+          eos:['Eosinophil','bilobed nucleus · orange granules'],
+          baso:['Basophil','coarse dark granules']};
+hudm.textContent=fine?'You are looking through my microscope. Move the lens over the bigger cells to find all 5 white cell types.'
+                     :'You are looking through my microscope. Tap the bigger cells to find all 5 white cell types.';
+
+function palette(dark){return dark?{
+  field:'#040a0b',edge:'rgba(150,240,225,.6)',
+  neut:{c1:'rgba(79,195,184,.28)',c2:'rgba(79,195,184,.08)',n:'#7fd0ff',g:'rgba(190,255,245,.4)'},
+  lymph:{c1:'rgba(79,195,184,.32)',c2:'rgba(79,195,184,.12)',n:'#6cc4ff',g:'rgba(255,255,255,.14)'},
+  mono:{c1:'rgba(79,195,184,.26)',c2:'rgba(79,195,184,.07)',n:'#8fb8ff',g:'rgba(4,10,11,.7)'},
+  eos:{c1:'rgba(255,178,107,.22)',c2:'rgba(255,178,107,.06)',n:'#7fd0ff',g:'#ffb26b'},
+  baso:{c1:'rgba(183,156,255,.22)',c2:'rgba(183,156,255,.06)',n:'rgba(127,208,255,.55)',g:'#b79cff'}
+}:{
+  field:'#fffaf5',edge:'rgba(90,60,110,.28)',
+  neut:{c1:'#f8e4e6',c2:'#efcbd2',n:'#56287f',g:'rgba(176,104,160,.5)'},
+  lymph:{c1:'#cfe0f5',c2:'#a3c2ea',n:'#3d1c66',g:'rgba(20,6,45,.25)'},
+  mono:{c1:'#d6dcea',c2:'#b5bfd4',n:'#7d5aa6',g:'rgba(255,255,255,.7)'},
+  eos:{c1:'#f9dccb',c2:'#f3c1a8',n:'#56287f',g:'#e8603a'},
+  baso:{c1:'#e5d6ec',c2:'#cdb7da',n:'rgba(106,69,146,.6)',g:'#2b1247'}
+}}
+function smooth(g,pts){
+  var n=pts.length,i,p,q;
+  g.beginPath();g.moveTo((pts[n-1][0]+pts[0][0])/2,(pts[n-1][1]+pts[0][1])/2);
+  for(i=0;i<n;i++){p=pts[i];q=pts[(i+1)%n];g.quadraticCurveTo(p[0],p[1],(p[0]+q[0])/2,(p[1]+q[1])/2)}
+  g.closePath();
+}
+function blob(g,r,rd,j){var n=14,pts=[],i,a,rr;for(i=0;i<n;i++){a=i/n*6.2832;rr=r*(1+(rd()-.5)*j);pts.push([Math.cos(a)*rr,Math.sin(a)*rr])}smooth(g,pts)}
+function body(g,r,p,rd){
+  blob(g,r,rd,.07);var gr=g.createRadialGradient(-r*.25,-r*.25,r*.1,0,0,r);
+  gr.addColorStop(0,p.c1);gr.addColorStop(1,p.c2);g.fillStyle=gr;g.fill();
+  g.lineWidth=Math.max(1,r*.025);g.strokeStyle=P.edge;g.stroke();
+}
+function dots(g,r,rd,n,size,col,inner){
+  g.fillStyle=col;
+  for(var i=0;i<n;i++){var a=rd()*6.2832,d=Math.sqrt(rd())*r*inner;g.beginPath();g.arc(Math.cos(a)*d,Math.sin(a)*d,size*(.7+rd()*.6),0,6.2832);g.fill()}
+}
+function nucOn(g,c,dark){g.fillStyle=c;g.strokeStyle=c;if(dark){g.shadowColor=c;g.shadowBlur=16}}
+function nucOff(g){g.shadowBlur=0;g.shadowColor='transparent'}
+function lobes(g,r,rd,L,j){L.forEach(function(l){g.save();g.translate(l[0]*r,l[1]*r);blob(g,l[2]*r,rd,j);g.fill();g.restore()})}
+var DRAW={
+  rbc:function(g,r,dark){
+    var gr=g.createRadialGradient(0,0,0,0,0,r);
+    if(dark){gr.addColorStop(0,'rgba(79,195,184,.03)');gr.addColorStop(.55,'rgba(79,195,184,.13)');gr.addColorStop(.86,'rgba(110,225,212,.8)');gr.addColorStop(.96,'rgba(190,255,245,.9)');gr.addColorStop(1,'rgba(190,255,245,0)')}
+    else{gr.addColorStop(0,'rgba(247,218,212,.55)');gr.addColorStop(.3,'rgba(238,176,172,.8)');gr.addColorStop(.62,'rgba(219,122,128,.95)');gr.addColorStop(.93,'rgba(203,92,104,1)');gr.addColorStop(1,'rgba(203,92,104,0)')}
+    g.fillStyle=gr;g.beginPath();g.arc(0,0,r,0,6.2832);g.fill();
+    g.lineWidth=r*.035;g.strokeStyle=dark?'rgba(200,255,246,.55)':'rgba(168,58,78,.5)';g.beginPath();g.arc(0,0,r*.93,0,6.2832);g.stroke();
+  },
+  plt:function(g,r,dark,rd){g.fillStyle=dark?'rgba(183,156,255,.9)':'rgba(122,85,168,.85)';blob(g,r,rd,.35);g.fill()},
+  neut:function(g,r,dark,rd){
+    var p=P.neut,L=[[-.36,.12,.25],[-.14,-.3,.24],[.2,-.24,.25],[.36,.14,.23]];
+    body(g,r,p,rd);dots(g,r,rd,120,r*.02,p.g,.84);
+    nucOn(g,p.n,dark);g.lineWidth=r*.07;g.lineCap='round';g.lineJoin='round';
+    g.beginPath();L.forEach(function(l,i){g[i?'lineTo':'moveTo'](l[0]*r,l[1]*r)});g.stroke();
+    lobes(g,r,rd,L,.16);nucOff(g);
+  },
+  lymph:function(g,r,dark,rd){
+    var p=P.lymph;body(g,r,p,rd);
+    g.save();g.translate(r*.07,-r*.05);nucOn(g,p.n,dark);blob(g,r*.8,rd,.06);g.fill();nucOff(g);dots(g,r*.7,rd,16,r*.09,p.g,.9);g.restore();
+  },
+  mono:function(g,r,dark,rd){
+    var p=P.mono,n=30,R=r*.62,pts=[],i,a,da,rr;
+    body(g,r,p,rd);dots(g,r,rd,6,r*.05,p.g,.8);
+    for(i=0;i<n;i++){a=i/n*6.2832;da=Math.atan2(Math.sin(a-.5),Math.cos(a-.5));rr=R*(1-.58*Math.exp(-da*da/.32))*(1+(rd()-.5)*.06);pts.push([Math.cos(a)*rr-r*.12,Math.sin(a)*rr-r*.04])}
+    nucOn(g,p.n,dark);smooth(g,pts);g.fill();nucOff(g);
+    g.save();g.translate(-r*.24,-r*.04);dots(g,r*.36,rd,12,r*.045,'rgba(255,255,255,.2)',.9);g.restore();
+  },
+  eos:function(g,r,dark,rd){
+    var p=P.eos,L=[[-.31,-.05,.28],[.31,.07,.28]];
+    body(g,r,p,rd);g.globalAlpha=.92;dots(g,r,rd,190,r*.045,p.g,.86);g.globalAlpha=1;
+    nucOn(g,p.n,dark);g.lineWidth=r*.07;g.beginPath();g.moveTo(L[0][0]*r,L[0][1]*r);g.lineTo(L[1][0]*r,L[1][1]*r);g.stroke();
+    lobes(g,r,rd,L,.14);nucOff(g);
+  },
+  baso:function(g,r,dark,rd){
+    var p=P.baso;body(g,r,p,rd);
+    g.fillStyle=p.n;lobes(g,r,rd,[[-.22,-.08,.3],[.2,.1,.3]],.14);
+    dots(g,r,rd,90,r*.085,p.g,.84);
+  }
+};
+function mk(w){var c=document.createElement('canvas');c.width=c.height=w;return c}
+function buildSprites(){
+  var dark=T.dark,B=64,pad=12,out={};P=palette(dark);
+  ['rbc','plt'].concat(TYPES).forEach(function(t,k){
+    var rad=B*SIZE[t],S=Math.ceil((rad+pad)*2),c=mk(S),g=c.getContext('2d');
+    g.translate(S/2,S/2);DRAW[t](g,rad,dark,rng(977*(k+3)+13));
+    var s=mk(Math.max(6,Math.round(S/6))),sg=s.getContext('2d');
+    sg.imageSmoothingEnabled=true;sg.imageSmoothingQuality='high';sg.drawImage(c,0,0,s.width,s.height);
+    out[t]={sharp:c,soft:s,half:S/2/B};
+  });
+  sprites=out;
+}
+function mkCell(t,r,i){
+  var w=t!=='rbc'&&t!=='plt';
+  return {t:t,w:w,x:w?W*(.1+.2*i):r()*W,y:w?H*(.16+.68*r()):r()*H,u:w?12.5:(t==='plt'?12:9+r()*4),z:w?1:.45+r()*.55,
+    vx:w?(r()<.5?-1:1)*(3+r()*3):4+r()*9,vy:(r()-.5)*(w?5:4),px:0,py:0,
+    rot:r()*6.28,vr:(r()-.5)*(w?.12:.5),tb:r()*6.28,vt:w?0:.3+r()*.9};
+}
+function initCells(){
+  var r=rng(20261110),n=clamp(Math.round(W*H/5200),44,200),i;cells=[];wbcs=[];
+  for(i=0;i<n;i++)cells.push(mkCell('rbc',r,0));
+  for(i=0;i<Math.round(n/9);i++)cells.push(mkCell('plt',r,0));
+  TYPES.forEach(function(t,i){var c=mkCell(t,r,i);cells.push(c);wbcs.push(c)});
+  cells.sort(function(a,b){return a.z-b.z});
+}
+function drawCell(c,x,y,s,sharp,a){
+  var sp=sprites[c.t],d=c.u*sp.half*2*s;
+  sc.globalAlpha=a;sc.translate(x,y);sc.rotate(c.rot);if(!c.w)sc.scale(1,.4+.6*Math.abs(Math.cos(c.tb)));
+  sc.drawImage(sharp?sp.sharp:sp.soft,-d/2,-d/2,d,d);sc.setTransform(dpr,0,0,dpr,0,0);
+}
+function rr(x,y,w,h,r){sc.beginPath();sc.moveTo(x+r,y);sc.arcTo(x+w,y,x+w,y+h,r);sc.arcTo(x+w,y+h,x,y+h,r);sc.arcTo(x,y+h,x,y,r);sc.arcTo(x,y,x+w,y,r);sc.closePath()}
+function drawLabel(lx,ly,R,type,a){
+  var name=INFO[type][0],desc=INFO[type][1],f1='700 13px "Schibsted Grotesk",system-ui,sans-serif',f2='400 10.5px "IBM Plex Mono",ui-monospace,monospace';
+  sc.font=f1;var w1=sc.measureText(name).width;sc.font=f2;var w2=sc.measureText(desc).width;
+  var w=Math.max(w1,w2)+24,h=44,x=clamp(lx-w/2,8,Math.max(8,W-w-8)),y=ly+R+16;if(y+h>H-6)y=ly-R-16-h;
+  sc.globalAlpha=a*.97;sc.fillStyle=T.surface;rr(x,y,w,h,8);sc.fill();sc.globalAlpha=a;sc.strokeStyle=T.accent;sc.lineWidth=1;sc.stroke();
+  sc.textBaseline='top';sc.textAlign='left';sc.fillStyle=T.ink;sc.font=f1;sc.fillText(name,x+12,y+7);
+  sc.fillStyle=T.muted;sc.font=f2;sc.fillText(desc,x+12,y+26);sc.globalAlpha=1;
+}
+function mark(type){
+  if(found[type])return;found[type]=1;nFound++;
+  var d=$('#huddots [data-t="'+type+'"]');if(d)d.classList.add('on');
+  var r=cv.getBoundingClientRect();
+  if(nFound>=5){hudm.textContent='Differential complete. All five white cell types identified.';hud.classList.add('done');burst(r.left+lens.x,r.top+lens.y,80,1.5)}
+  else{hudm.textContent=INFO[type][0]+' found. '+(5-nFound)+' more to go.';burst(r.left+lens.x,r.top+lens.y,14,.8)}
+}
+function inQuiet(c,m){return !!quiet&&c.x>quiet[0]-m&&c.x<quiet[2]+m&&c.y>quiet[1]-m&&c.y<quiet[3]+m}
+function scopeFrame(t,dt){
+  if(!sprites||!W)return;
+  var user=t-lens.user<4000,n=cells.length,R=lens.R,i,c;
+  if(!user&&!still&&wbcs.length){
+    var ci=Math.max(lens.ai,0),j,pick=-1;
+    if(lens.ai<0||t>lens.at||inQuiet(wbcs[ci],R*.6)){
+      for(j=1;j<=wbcs.length;j++){var cand=(ci+j)%wbcs.length;if(!inQuiet(wbcs[cand],R*.6)){pick=cand;break}}
+      lens.free=pick>=0;lens.ai=pick>=0?pick:ci;lens.at=t+4200;
+    }
+    if(lens.free){lens.tx=wbcs[lens.ai].x;lens.ty=wbcs[lens.ai].y}
+    else if(W-quiet[2]>R*1.6){lens.tx=quiet[2]+R*1.2;lens.ty=H*.32}
+    else{lens.tx=W*.78;lens.ty=Math.max(R*.9,quiet[1]-R*.9)}
+  }
+  var ox=lens.x,oy=lens.y;
+  if(dt){var k=Math.min(1,dt*(user?14:2));lens.x+=(lens.tx-lens.x)*k;lens.y+=(lens.ty-lens.y)*k}else{lens.x=lens.tx;lens.y=lens.ty}
+  var lvx=dt?(lens.x-ox)/dt:0,lvy=dt?(lens.y-oy)/dt:0,SR=R*1.5;
+  if(dt)for(i=0;i<n;i++){
+    c=cells[i];
+    if(user&&!c.w){var dx=c.x-lens.x,dy=c.y-lens.y,d2=dx*dx+dy*dy;
+      if(d2<SR*SR){var f=(1-Math.sqrt(d2)/SR)*.06;c.px=clamp(c.px+lvx*f,-160,160);c.py=clamp(c.py+lvy*f,-160,160)}}
+    c.x+=(c.vx+c.px)*dt;c.y+=(c.vy+c.py)*dt;c.px*=.95;c.py*=.95;c.rot+=c.vr*dt;c.tb+=c.vt*dt;
+    if(c.w){
+      if(c.x<50){c.x=50;c.vx=Math.abs(c.vx)}else if(c.x>W-50){c.x=W-50;c.vx=-Math.abs(c.vx)}
+      if(c.y<50){c.y=50;c.vy=Math.abs(c.vy)}else if(c.y>H-50){c.y=H-50;c.vy=-Math.abs(c.vy)}
+    }else{
+      if(c.x>W+30)c.x=-30;else if(c.x<-30)c.x=W+30;
+      if(c.y>H+30)c.y=-30;else if(c.y<-30)c.y=H+30;
+    }
+  }
+  sc.setTransform(dpr,0,0,dpr,0,0);sc.clearRect(0,0,W,H);
+  var fa=T.dark?.5:.48;
+  for(i=0;i<n;i++){c=cells[i];var qa=1;
+    if(quiet){var qx=Math.max(quiet[0]-c.x,0,c.x-quiet[2]),qy=Math.max(quiet[1]-c.y,0,c.y-quiet[3]);qa=.34+.66*clamp(Math.hypot(qx,qy)/80,0,1)}
+    drawCell(c,c.x,c.y,1,false,Math.min(1,fa*c.z*qa*(c.w?1.8:1)))}
+  var lx=lens.x,ly=lens.y;
+  sc.save();sc.beginPath();sc.arc(lx,ly,R,0,6.2832);sc.clip();
+  sc.globalAlpha=1;sc.fillStyle=P.field;sc.fillRect(lx-R,ly-R,2*R,2*R);
+  for(i=0;i<n;i++){c=cells[i];var mx=(c.x-lx)*Z,my=(c.y-ly)*Z,e=c.u*sprites[c.t].half*Z+R;
+    if(mx*mx+my*my<e*e){sc.globalCompositeOperation=T.dark&&!c.w?'lighter':'source-over';drawCell(c,lx+mx,ly+my,Z,true,c.w?1:.55+.4*c.z)}}
+  sc.globalCompositeOperation='source-over';sc.globalAlpha=1;
+  var vg=sc.createRadialGradient(lx,ly,R*.55,lx,ly,R);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,T.dark?'rgba(0,0,0,.6)':'rgba(15,42,46,.3)');
+  sc.fillStyle=vg;sc.fillRect(lx-R,ly-R,2*R,2*R);
+  sc.strokeStyle=T.dark?'rgba(228,239,238,.5)':'rgba(15,42,46,.45)';sc.lineWidth=1;sc.beginPath();
+  sc.moveTo(lx-R*.5,ly);sc.lineTo(lx+R*.5,ly);
+  for(i=-5;i<=5;i++){var tx=lx+i*R*.1,th=i%5===0?6:3;sc.moveTo(tx,ly-th);sc.lineTo(tx,ly+th)}
+  sc.stroke();
+  sc.fillStyle=sc.strokeStyle;sc.font='500 9px "IBM Plex Mono",ui-monospace,monospace';sc.textAlign='center';sc.textBaseline='top';
+  sc.fillText('100× OIL',lx,ly-R+12);
+  sc.restore();
+  sc.globalAlpha=1;sc.lineWidth=6;sc.strokeStyle=T.dark?'#22383a':'#0f2a2e';sc.beginPath();sc.arc(lx,ly,R+2,0,6.2832);sc.stroke();
+  sc.lineWidth=1.5;sc.strokeStyle=T.accent;sc.beginPath();sc.arc(lx,ly,R+7,0,6.2832);sc.stroke();
+  var best=null,bd=1e9;
+  for(i=0;i<wbcs.length;i++){c=wbcs[i];var d=Math.hypot(c.x-lx,c.y-ly);if(d<bd){bd=d;best=c}}
+  if(best&&bd<R*.85/Z){if(hit!==best){hit=best;hitT=t}}else hit=null;
+  if(hit){
+    if(user&&(still||t-hitT>280))mark(hit.t);
+    drawLabel(lx,ly,R,hit.t,still?1:clamp((t-hitT)/220,0,1));
+  }
+}
+function scopeResize(){
+  var w=hero.clientWidth,h=hero.clientHeight;if(!w||!h)return;
+  var first=!cells.length,big=Math.abs(w-W)>40||Math.abs(h-H)>140;
+  W=w;H=h;dpr=Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+  lens.R=clamp(Math.min(W,H)*.19,62,112);
+  var hr=cv.getBoundingClientRect(),tr=heroText.getBoundingClientRect();quiet=[tr.left-hr.left-10,tr.top-hr.top-10,tr.left-hr.left+Math.min(tr.width,590)+10,tr.bottom-hr.top+10];
+  if(first||big){initCells();if(first){lens.x=lens.tx=W*.84;lens.y=lens.ty=H*.3}}
+  if(still){if(first){lens.tx=wbcs[0].x;lens.ty=wbcs[0].y}requestAnimationFrame(function(t){scopeFrame(t,0)})}
+}
+function lensTo(e){
+  var r=cv.getBoundingClientRect();lens.tx=clamp(e.clientX-r.left,0,W);lens.ty=clamp(e.clientY-r.top,0,H);lens.user=now();
+  if(still)requestAnimationFrame(function(t){scopeFrame(t,0)});
+}
+buildSprites();
+themeSubs.push(function(){buildSprites();if(still)requestAnimationFrame(function(t){scopeFrame(t,0)})});
+if('ResizeObserver' in window)new ResizeObserver(scopeResize).observe(hero);else addEventListener('resize',scopeResize);
+scopeResize();
+hero.addEventListener('pointermove',lensTo,{passive:true});
+hero.addEventListener('pointerdown',lensTo,{passive:true});
+if('IntersectionObserver' in window)new IntersectionObserver(function(es){heroVis=es[0].isIntersecting}).observe(hero);
+
+/* ---------- Blood tube: scroll progress that separates and sloshes ---------- */
+var tsurf=$('#tsurfp'),tpl=$('#t-plasma'),tbf=$('#t-buffy'),spin=$('#spin'),ts={a:0,v:0,rest:true},TY=72,TH=180;
+function setTube(p){
+  var h=TH*.55*p;tpl.setAttribute('height',(20+h).toFixed(1));tbf.setAttribute('y',(TY+h-1.5).toFixed(1));
+  tbf.setAttribute('opacity',clamp((p-.25)*2,0,1).toFixed(2));spin.textContent=Math.round(p*100)+'%';
+}
+function tubeTick(dt,dy){
+  ts.v+=clamp(dy,-90,90)*.35;ts.v+=(-ts.a*70-ts.v*5.5)*dt;ts.a=clamp(ts.a+ts.v*dt,-9,9);
+  if(Math.abs(ts.a)<.03&&Math.abs(ts.v)<.03){if(ts.rest)return;ts.rest=true;ts.a=0;ts.v=0}else ts.rest=false;
+  tsurf.setAttribute('points','10,'+(TY+ts.a).toFixed(2)+' 50,'+(TY-ts.a).toFixed(2)+' 50,262 10,262');
+}
+
+/* ---------- Scroll: progress, nav pill, timeline fill ---------- */
+var bar=$('#progress'),links=$$('.links a'),pill=$('#pill'),curNav=-2,
+    secs=links.map(function(a){return $(a.getAttribute('href'))}),tl=$('#timeline'),tf=$('#tfill');
+function movePill(){
+  if(curNav<0){pill.style.opacity=0;return}
+  var a=links[curNav];pill.style.opacity=1;pill.style.width=a.offsetWidth+'px';pill.style.transform='translateX('+a.offsetLeft+'px)';
+}
+function onScroll(){
+  var h=document.documentElement.scrollHeight-innerHeight,p=h>0?clamp(scrollY/h,0,1):0;
+  bar.style.transform='scaleX('+p+')';setTube(p);
+  var cur=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<innerHeight*.4)cur=i});
+  if(cur!==curNav){curNav=cur;links.forEach(function(a,i){a.classList.toggle('on',i===cur)});movePill()}
+  var r=tl.getBoundingClientRect(),q=clamp((innerHeight*.6-r.top)/r.height,0,1);
+  tf.style.height=(still?100:q*100)+'%';
+}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',function(){onScroll();movePill()});
+
+/* ---------- Word-mask headings, reveals, count-up ---------- */
+function split(el){
+  var i=0;
+  Array.prototype.slice.call(el.childNodes).forEach(function(n){
+    if(n.nodeType===3){
+      var frag=document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(function(tk){
+        if(!tk)return;
+        if(/^\s+$/.test(tk)){frag.appendChild(document.createTextNode(' '));return}
+        var w=document.createElement('span'),s=document.createElement('span');
+        w.className='w';s.textContent=tk;s.style.setProperty('--wi',i++);w.appendChild(s);frag.appendChild(w);
+      });
+      el.replaceChild(frag,n);
+    }else if(n.nodeType===1){n.classList.add('we');n.style.setProperty('--wi',i++)}
+  });
+}
+function countUp(el){
+  var end=+el.dataset.count;if(still){el.textContent=end;return}
+  var s=null;el.textContent='0';
+  requestAnimationFrame(function step(ts_){if(!s)s=ts_;var p=Math.min((ts_-s)/1100,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)});
+}
+$$('.track li').forEach(function(li,i){li.style.setProperty('--i',i%6)});
+$$('.tracks .track').forEach(function(t,i){t.style.setProperty('--d',(i*110)+'ms')});
+if(canReveal)$$('.hero h1, h2').forEach(split);
+function show(el){
+  if(el.classList.contains('in'))return;el.classList.add('in');
+  $$('[data-count]',el).forEach(countUp);
+  if(el.id==='qc')drawLine();
+}
+var reveal=$$('[data-reveal]');
+if(canReveal){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  reveal.forEach(function(el){io.observe(el)});
+  requestAnimationFrame(function(){requestAnimationFrame(function(){hero.classList.add('in')})});
+}else{reveal.forEach(function(el){el.classList.add('in')})}
+
+/* ---------- Tilt, glow, magnetic buttons ---------- */
+if(fine&&!still){
+  $$('.label,.track').forEach(function(el){
+    el.addEventListener('pointermove',function(e){
+      var r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height,ax=-(py-.5),ay=px-.5,m=Math.hypot(ax,ay)||1e-4;
+      el.style.rotate=ax.toFixed(3)+' '+ay.toFixed(3)+' 0 '+(m*13).toFixed(2)+'deg';
+      el.style.setProperty('--gx',(px*100).toFixed(1)+'%');el.style.setProperty('--gy',(py*100).toFixed(1)+'%');
+    });
+    el.addEventListener('pointerleave',function(){el.style.rotate=''});
+  });
+  $$('[data-mag]').forEach(function(b){
+    b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();
+      b.style.translate=((e.clientX-r.left-r.width/2)*.22).toFixed(1)+'px '+((e.clientY-r.top-r.height/2)*.32).toFixed(1)+'px'});
+    b.addEventListener('pointerleave',function(){b.style.translate=''});
+  });
+  var ct=$('#contact');
+  ct.addEventListener('pointermove',function(e){var r=ct.getBoundingClientRect();ct.style.setProperty('--mx',(e.clientX-r.left)+'px');ct.style.setProperty('--my',(e.clientY-r.top)+'px')});
+}
+
+/* ---------- Rotating audience word ---------- */
+var words=['clinics','laboratories','AI teams','health-tech startups'],wi=0,sw=$('#swap');
+if(!still)setInterval(function(){
+  sw.classList.add('out');
+  setTimeout(function(){wi=(wi+1)%words.length;sw.textContent=words[wi];sw.classList.remove('out')},260);
+},2600);
+
+/* ---------- Marquee reacts to scroll speed ---------- */
+var mq=$('#mq'),mqt=$('#mqt'),mqA=null,mv=0,mqZero=true;
+function mqTick(sv){
+  mv=lerp(mv,sv,.12);var z=Math.abs(mv)<.02;if(z&&mqZero)return;mqZero=z;
+  mq.style.transform='skewX('+clamp(-mv*.35,-12,12).toFixed(2)+'deg)';
+  if(mqA===null)mqA=(mqt.getAnimations&&mqt.getAnimations()[0])||false;
+  if(mqA)mqA.playbackRate=1+Math.min(6,Math.abs(mv)*.12);
+}
+
+/* ---------- Master loop ---------- */
+var lastT=0,lastY=scrollY,sv=0;
+function loop(t){
+  var dt=lastT?Math.min(.05,(t-lastT)/1000):.016;lastT=t;
+  var dy=scrollY-lastY;lastY=scrollY;sv=lerp(sv,dy,.25);
+  if(heroVis&&!document.hidden)scopeFrame(t,dt);
+  tubeTick(dt,dy);mqTick(sv);
+  requestAnimationFrame(loop);
+}
+if(!still)requestAnimationFrame(loop);
+
+/* ---------- Drug test simulator with draggable dropper ---------- */
+var OUT={
+  neg:{lines:['metT','metC','thcT','thcC'],why:'Both strips show a T line and a C line. In a drug screen, a line at T means the drug is below the cutoff, so this reads <b>negative</b>. Even a faint T line counts as negative.'},
+  met:{lines:['metC','thcT','thcC'],why:'The MET strip has a C line but no T line. A missing T line means methamphetamine is above the cutoff: <b>presumptive positive for MET</b>. It goes to confirmatory testing before any result is final.'},
+  thc:{lines:['metT','metC','thcC'],why:'The THC strip has a C line but no T line. A missing T line means cannabinoids are above the cutoff: <b>presumptive positive for THC</b>. It goes to confirmatory testing before any result is final.'},
+  inv:{lines:['metT','metC','thcT'],why:'The THC strip has no C line. Without a control line the device failed, so the test is <b>invalid</b> no matter what the T line shows. Re-test with a new device.'}
+};
+var sim=$('#bench'),steps=$$('#steps li'),spec=$('#spec'),bCollect=$('#collect'),bDrops=$('#drops'),reads=$$('#reads button'),
+    verdict=$('#verdict'),timer=$('#timer'),dropg=$('#dropg'),wet=$('#wellwet'),dropper=$('#dropper'),wellRing=$('#wellring'),hint=$('#draghint'),
+    REST={x:392,y:2},WELL={x:78,y:118},dpos={x:392,y:2},armed=false,busy=false,cur=null,lastOut=null,drag=null;
+function step(n){steps.forEach(function(li,i){li.className=i<n?'ok':i===n?'now':''})}
+function setDrop(x,y,anim){
+  dpos.x=x;dpos.y=y;dropper.style.transition=(anim&&!still?'transform .55s cubic-bezier(.3,1.3,.5,1),':'transform 0s,')+'opacity .3s';
+  dropper.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px)';
+}
+function overWell(){return Math.abs(dpos.x-WELL.x)<42&&dpos.y>WELL.y-80&&dpos.y<WELL.y+34}
+function svgPt(e){var p=sim.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(sim.getScreenCTM().inverse())}
+function simReset(){
+  sim.classList.remove('wet');wet.style.opacity=0;
+  $$('.ln',sim).forEach(function(l){l.classList.remove('on')});
+  reads.forEach(function(r){r.disabled=true;r.className=''});
+  verdict.hidden=true;timer.innerHTML='Read time <b>0:00</b> / 5:00';
+}
+bCollect.addEventListener('click',function(){
+  if(busy)return;simReset();
+  var keys=Object.keys(OUT).filter(function(k){return k!==lastOut});cur=keys[Math.floor(Math.random()*keys.length)];lastOut=cur;
+  var id='DT-'+(10000+Math.floor(Math.random()*89999)),temp=(33+Math.random()*3).toFixed(1);
+  spec.innerHTML='Specimen <b>'+id+'</b> · urine<br>Seal intact ✓ · Temp '+temp+' °C ✓ (32–38 °C)';
+  bCollect.textContent='Collect new specimen';bDrops.disabled=false;armed=true;
+  dropper.classList.add('armed');hint.classList.add('show');setDrop(REST.x,REST.y,true);step(1);
+});
+dropper.addEventListener('pointerdown',function(e){
+  if(!armed||busy)return;e.preventDefault();var p=svgPt(e);drag={dx:p.x-dpos.x,dy:p.y-dpos.y};
+  try{dropper.setPointerCapture(e.pointerId)}catch(err){}
+  dropper.classList.add('drag');hint.classList.remove('show');
+});
+dropper.addEventListener('pointermove',function(e){
+  if(!drag)return;var p=svgPt(e);setDrop(clamp(p.x-drag.dx,14,426),clamp(p.y-drag.dy,-6,216),false);
+  wellRing.classList.toggle('hot',overWell());
+});
+function endDrag(){
+  if(!drag)return;drag=null;dropper.classList.remove('drag');wellRing.classList.remove('hot');
+  if(overWell())dispense();else{setDrop(REST.x,REST.y,true);hint.classList.add('show')}
+}
+dropper.addEventListener('pointerup',endDrag);dropper.addEventListener('pointercancel',endDrag);
+function dispense(){
+  if(busy||!armed)return;busy=true;armed=false;bDrops.disabled=true;bCollect.disabled=true;hint.classList.remove('show');step(2);
+  setDrop(WELL.x,WELL.y-34,true);
+  setTimeout(function(){
+    if(!still)for(var i=0;i<3;i++)(function(i){
+      var d=svgEl('path',{d:'M0 -9C-5 -1 -6 2 -6 5a6 6 0 0 0 12 0c0 -3 -1 -6 -6 -14z',fill:'var(--urine)',stroke:'#c9a23f','stroke-width':'.8'});
+      dropg.appendChild(d);
+      var tx='translate('+WELL.x+'px,',an=d.animate([
+        {transform:tx+(WELL.y-30)+'px) scale(.4)',opacity:0},
+        {transform:tx+(WELL.y-22)+'px) scale(1)',opacity:1,offset:.3},
+        {transform:tx+(WELL.y-6)+'px) scale(1)',opacity:1,offset:.85},
+        {transform:tx+WELL.y+'px) scale(1.5,.35)',opacity:0}],{duration:520,delay:i*330,easing:'ease-in',fill:'both'});
+      an.onfinish=function(){d.remove()};
+    })(i);
+    dropper.classList.remove('armed');
+    setTimeout(function(){wet.style.opacity=.6;setDrop(REST.x,REST.y,true);sim.getBoundingClientRect();sim.classList.add('wet');runTimer()},still?0:1250);
+  },still?0:520);
+}
+bDrops.addEventListener('click',dispense);
+function runTimer(){
+  var total=still?0:4200,s0=now();
+  requestAnimationFrame(function tick(t){
+    var p=total?clamp((t-s0)/total,0,1):1,secs=Math.round(p*300);
+    timer.innerHTML='Read time <b>'+Math.floor(secs/60)+':'+('0'+secs%60).slice(-2)+'</b> / 5:00';
+    OUT[cur].lines.forEach(function(id){var isC=/C$/.test(id);if((isC&&p>=.35)||(!isC&&p>=.6))$('#'+id).classList.add('on')});
+    if(p<1)requestAnimationFrame(tick);
+    else{step(3);reads.forEach(function(r){r.disabled=false});bCollect.disabled=false;busy=false}
+  });
+}
+reads.forEach(function(r){r.addEventListener('click',function(){
+  var ok=r.dataset.a===cur;
+  reads.forEach(function(x){x.disabled=true;if(x.dataset.a===cur)x.className='right'});
+  if(!ok)r.className='wrong';else burstAt(r,26,1);
+  verdict.innerHTML=(ok?'<b>Correct read.</b> ':'<b>Not quite.</b> ')+OUT[cur].why;verdict.hidden=false;
+  step(4);bCollect.textContent='Run another specimen';
+})});
+
+/* ---------- Spot-the-error quiz ---------- */
+var rounds=[
+  {c:['Normal fasting plasma glucose in adults is about 70–99 mg/dL.',
+      'A serum potassium of 6.8 mmol/L is within the normal adult range.',
+      'Hemoglobin A1c reflects average blood glucose over roughly 2–3 months.'],
+   bad:1,why:'Normal potassium is about 3.5–5.0 mmol/L. A value of 6.8 is severe hyperkalemia and a critical result that needs an immediate call to the physician.'},
+  {c:['Hemolysis in a sample can falsely raise the measured potassium.',
+      'Cardiac troponin is the preferred lab marker for myocardial injury.',
+      'Type O negative is the universal donor for plasma transfusion.'],
+   bad:2,why:'O negative is the universal red cell donor. For plasma it flips: type AB plasma is universal, because it carries no anti-A or anti-B antibodies.'},
+  {c:['An INR of 1.0 shows a patient on warfarin is fully anticoagulated.',
+      'Gram-positive bacteria stain purple in a Gram stain.',
+      'A normal adult platelet count is roughly 150,000–450,000 per µL.'],
+   bad:0,why:'An INR of 1.0 is normal clotting, meaning no warfarin effect. The usual target for most warfarin patients is an INR of 2.0–3.0.'}
+];
+var qi=0,qs=0,claimsEl=$('#claims'),qex=$('#explain'),qnext=$('#qnext'),qend=$('#qend'),qdots=$$('#qdots i'),qscore=$('#qscore');
+function quizRender(){
+  var r=rounds[qi];claimsEl.textContent='';qex.hidden=true;qnext.hidden=true;qend.hidden=true;
+  $('#qround').textContent='Round '+(qi+1)+' of 3 · AI response';
+  r.c.forEach(function(txt,i){
+    var b=document.createElement('button'),n=document.createElement('span'),s=document.createElement('span');
+    b.type='button';b.className='claim';n.className='n';n.textContent='0'+(i+1);s.textContent=txt;b.appendChild(n);b.appendChild(s);
+    b.addEventListener('click',function(){quizPick(i,b)});claimsEl.appendChild(b);
+    if(!still&&b.animate)b.animate([{opacity:0,transform:'translateX(-14px)'},{opacity:1,transform:'none'}],{duration:420,delay:i*90,easing:'cubic-bezier(.2,.7,.2,1)',fill:'backwards'});
+  });
+}
+function quizPick(i,b){
+  var r=rounds[qi],ok=i===r.bad;
+  $$('.claim',claimsEl).forEach(function(x,j){x.disabled=true;if(j===r.bad)x.classList.add('right');else if(j!==i)x.classList.add('fade')});
+  if(!ok){b.classList.add('wrong');if(!still){claimsEl.classList.remove('shake');void claimsEl.offsetWidth;claimsEl.classList.add('shake')}}
+  else{qs++;burstAt(b,22,.9)}
+  qscore.textContent=qs;qdots[qi].classList.add(ok?'done':'miss');
+  qex.textContent='';var lead=document.createElement('b');
+  lead.textContent=ok?'Caught it. ':'That one was correct. The error was statement 0'+(r.bad+1)+'. ';
+  qex.appendChild(lead);qex.appendChild(document.createTextNode(r.why));qex.hidden=false;
+  if(qi<rounds.length-1){qnext.textContent='Next round';qnext.hidden=false}
+  else{
+    qend.textContent=qs===3?'3 of 3. You would make a good reviewer.':qs+' of 3. This is the checking I do for AI teams every day.';
+    qend.hidden=false;qnext.textContent='Play again';qnext.hidden=false;
+    if(qs===3)burstAt(qscore,90,1.6);
+  }
+}
+qnext.addEventListener('click',function(){
+  if(qi<rounds.length-1)qi++;else{qi=0;qs=0;qscore.textContent=0;qdots.forEach(function(d){d.className=''})}
+  quizRender();
+});
+quizRender();
+
+/* ---------- Levey-Jennings chart with Westgard rules ---------- */
+var MEAN=100,SD=4,N=15,X0=58,DX=24,runNo=15,bias=0,
+    vals=[98.5,103,96.2,101.8,97.4,105.2,99.1,102.6,95.8,100.9,103.8,97.9,101.2,98.8,102.1],
+    zs=vals.map(function(v){return (v-MEAN)/SD}),hist=[0,0,0,0,0,0,0,0,0,0,0,0],total=0,hl=[],bars=[],
+    plot=$('#plot'),ptsG=$('#pts'),ringsG=$('#rings'),line=$('#qline'),barsG=$('#bars'),tip=$('#tip'),chart=$('#chart'),read=$('#read'),nlab=$('#nlab'),
+    bRun=$('#run'),bShift=$('#shift'),bSpike=$('#spike'),bRecal=$('#recal');
+function yz(z){return 110-clamp(z,-3.25,3.25)*30}
+(function(){
+  var d='',z,i;
+  for(z=-3.3;z<=3.31;z+=.15)d+=(d?'L':'M')+(414+86*Math.exp(-z*z/2)).toFixed(1)+' '+(110-z*30).toFixed(1);
+  $('#bell').setAttribute('d',d);
+  for(i=0;i<12;i++){var b=svgEl('rect',{x:414,y:186-15*i,width:86,height:13,'class':'bar'});barsG.appendChild(b);bars.push(b)}
+})();
+function addHist(z,draw){
+  hist[clamp(Math.floor((z+3)/.5),0,11)]++;total++;
+  if(draw!==false)drawHist();
+}
+function drawHist(){
+  bars.forEach(function(b,i){b.style.transform='scaleX('+clamp(hist[i]/total/.1915,0,1.12).toFixed(3)+')'});
+  nlab.textContent='n = '+total;
+}
+function westgard(){
+  var n=zs.length,z=zs[n-1],p=zs[n-2],i,ok;
+  if(Math.abs(z)<=2)return{lvl:'ok',rule:'In control',n:0,msg:'Within ±2 SD. Accept the run and release results.'};
+  if(Math.abs(z)>3)return{lvl:'rej',rule:'1-3s',n:1,msg:'One control is beyond ±3 SD. Likely random error. Reject the run.'};
+  if((z>2&&p>2)||(z<-2&&p<-2))return{lvl:'rej',rule:'2-2s',n:2,msg:'Two controls in a row beyond the same 2 SD limit. Systematic error. Reject the run.'};
+  if((z>2&&p<-2)||(z<-2&&p>2))return{lvl:'rej',rule:'R-4s',n:2,msg:'Two controls in a row more than 4 SD apart. Random error. Reject the run.'};
+  if(n>=4){ok=true;for(i=n-4;i<n;i++)if(!(zs[i]*z>0&&Math.abs(zs[i])>1))ok=false;
+    if(ok)return{lvl:'rej',rule:'4-1s',n:4,msg:'Four controls in a row beyond 1 SD on the same side. Systematic shift. Reject the run.'}}
+  if(n>=10){ok=true;for(i=n-10;i<n;i++)if(zs[i]*z<=0)ok=false;
+    if(ok)return{lvl:'rej',rule:'10x',n:10,msg:'Ten controls in a row on the same side of the mean. Systematic shift. Reject the run.'}}
+  return{lvl:'warn',rule:'1-2s',n:1,msg:'One control beyond ±2 SD. A warning, not a rejection. No other rule is broken, so the run can be accepted.'};
+}
+function tipFor(c){
+  var v=c._v,z=(v-MEAN)/SD;
+  tip.textContent='Run '+c._n+' · '+v.toFixed(1)+' mg/dL · '+(z>=0?'+':'')+z.toFixed(1)+' SD';
+  var svg=$('svg',chart),sb=svg.getBoundingClientRect(),cb=chart.getBoundingClientRect(),k=sb.width/520;
+  tip.style.left=(sb.left-cb.left+chart.scrollLeft+(+c.getAttribute('cx'))*k)+'px';
+  tip.style.top=(sb.top-cb.top+(+c.getAttribute('cy'))*k)+'px';tip.classList.add('show');
+}
+function describe(n,v,w){
+  var z=(v-MEAN)/SD;
+  read.innerHTML='<b>Run '+n+': '+v.toFixed(1)+' mg/dL</b> ('+(z>=0?'+':'')+z.toFixed(1)+' SD) <span class="rule '+w.lvl+'">'+w.rule+'</span><br>'+w.msg+
+    (w.lvl==='rej'&&bias?' Recalibrate to fix the shift.':'');
+}
+function render(){
+  ptsG.textContent='';ringsG.textContent='';var pts=[],n=vals.length;
+  vals.forEach(function(v,i){
+    var z=(v-MEAN)/SD,px=X0+i*DX,py=yz(z),run=runNo-n+i+1,
+        c=svgEl('circle',{cx:px,cy:py,r:4.5,tabindex:0,'class':'pt'+(Math.abs(z)>3?' rej':Math.abs(z)>2?' warn':''),'aria-label':'Run '+run+', '+v.toFixed(1)+' mg/dL'});
+    c._n=run;c._v=v;pts.push(px+','+py);
+    ['mouseenter','focus'].forEach(function(ev){c.addEventListener(ev,function(){tipFor(c)})});
+    ['mouseleave','blur'].forEach(function(ev){c.addEventListener(ev,function(){tip.classList.remove('show')})});
+    c.addEventListener('click',function(){tipFor(c)});
+    ptsG.appendChild(c);
+    if(hl.indexOf(run)>-1)ringsG.appendChild(svgEl('circle',{cx:px,cy:py,r:9,'class':'hl'}));
+  });
+  line.setAttribute('points',pts.join(' '));
+}
+function runCtl(zf){
+  var z=clamp(zf!==undefined?zf:gauss()*.85+bias,-3.6,3.6),v=Math.round((MEAN+z*SD)*10)/10;z=(v-MEAN)/SD;
+  runNo++;vals.push(v);if(vals.length>N)vals.shift();zs.push(z);addHist(z);
+  var w=westgard(),i;hl=[];for(i=0;i<w.n;i++)hl.push(runNo-i);
+  render();describe(runNo,v,w);
+  if(!still&&plot.animate){
+    plot.animate([{transform:'translateX('+DX+'px)'},{transform:'translateX(0px)'}],{duration:380,easing:'cubic-bezier(.2,.7,.2,1)'});
+    ptsG.lastChild.animate([{r:0},{r:10},{r:4.5}],{duration:520,easing:'ease-out'});
+  }
+  if(w.lvl==='rej'&&!still){chart.classList.remove('shake');void chart.offsetWidth;chart.classList.add('shake')}
+}
+function drawLine(){
+  if(still||!line.getTotalLength)return;var len=line.getTotalLength();
+  line.style.transition='none';line.style.strokeDasharray=len;line.style.strokeDashoffset=len;line.getBoundingClientRect();
+  line.style.transition='stroke-dashoffset 1.6s ease';line.style.strokeDashoffset=0;
+  setTimeout(function(){line.style.strokeDasharray='';line.style.transition=''},1700);
+}
+bRun.addEventListener('click',function(){runCtl()});
+bSpike.addEventListener('click',function(){runCtl((Math.random()<.5?-1:1)*(3.1+Math.random()*.4))});
+bShift.addEventListener('click',function(){
+  bias=1.7;bShift.disabled=true;bRecal.hidden=false;hl=[];render();
+  read.innerHTML='<b>Shift introduced.</b> Imagine a new reagent lot that reads high. Keep running controls and watch the points drift until a rule fires.';
+});
+bRecal.addEventListener('click',function(){
+  bias=0;bShift.disabled=false;bRecal.hidden=true;hl=[];render();
+  read.innerHTML='<b>Recalibrated.</b> The shift is corrected. New runs should settle back around the mean.';
+});
+zs.forEach(function(z){addHist(z,false)});drawHist();render();
+
+/* ---------- Request builder (types the draft) ---------- */
+var picks=$$('#pick button'),msg=$('#msg'),fit=$('#fit'),mail=$('#mailmsg'),edited=false,typeId=0,full='',
+    NAMES={va:'Medical Virtual Assistant',ai:'Clinical AI Trainer & Reviewer',dt:'Drug Testing Admin Support'};
+function syncMail(t){mail.href='mailto:haerahvaencettelou@gmail.com?subject='+encodeURIComponent('Inquiry: part-time support')+'&body='+encodeURIComponent(t)}
+msg.addEventListener('input',function(){edited=true;typeId++;full=msg.value;syncMail(full)});
+function typeOut(text){
+  var id=++typeId,i=0,curV=msg.value;full=text;syncMail(text);
+  if(still||!text){msg.value=text;return}
+  while(i<text.length&&i<curV.length&&text[i]===curV[i])i++;
+  msg.value=text.slice(0,i);
+  (function stepT(){if(id!==typeId)return;i=Math.min(text.length,i+2);msg.value=text.slice(0,i);if(i<text.length)setTimeout(stepT,10)})();
+}
+function build(){
+  var sel=[],k={va:0,ai:0,dt:0};
+  picks.forEach(function(p){if(p.getAttribute('aria-pressed')==='true'){sel.push(p.textContent.toLowerCase());k[p.dataset.t]++}});
+  var fitT=Object.keys(k).filter(function(x){return k[x]}).map(function(x){return NAMES[x]});
+  fit.textContent=!sel.length?'Pick one or more tasks.':'Best fit: '+fitT.join(' + ')+(fitT.length>1?' (combined)':'')+'.';
+  if(edited)return;
+  var list=sel.length>1?sel.slice(0,-1).join(', ')+' and '+sel[sel.length-1]:sel[0];
+  typeOut(sel.length?'Hi Haerah,\n\nI found your portfolio and I need part-time help with '+list+'.\n\nA bit about us: [your clinic or company, and roughly how many hours a week]\n\nAre you available to talk this week?\n\nThanks,\n[Your name]':'');
+}
+picks.forEach(function(p){p.addEventListener('click',function(){p.setAttribute('aria-pressed',p.getAttribute('aria-pressed')==='true'?'false':'true');build()})});
+syncMail('');
+$('#copymsg').addEventListener('click',function(){
+  var b=this,text=edited?msg.value:full;
+  if(!text){fit.textContent='Pick a task first, or type your message.';return}
+  function done(){b.textContent='Copied. Paste it into an email to me';burstAt(b,18,.8);setTimeout(function(){b.textContent='Copy message'},2200)}
+  function sel(){msg.select();b.textContent='Selected. Press Ctrl+C'}
+  try{navigator.clipboard.writeText(text).then(done,sel)}catch(e){sel()}
+});
+
+/* ---------- Copy buttons ---------- */
+$$('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.target),t=el.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+    function done(){b.textContent='Copied';b.classList.add('done');setTimeout(function(){b.textContent='Copy';b.classList.remove('done')},1600)}
+    try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+  });
+});
+
+onScroll();
+})();
+</script>
+</body>
+</html>
